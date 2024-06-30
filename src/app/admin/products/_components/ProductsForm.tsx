@@ -16,8 +16,8 @@ export function ProductForm({ product }: { product?: Product | null }) {
     product == null ? addProduct : updateProduct.bind(null, product.id),
     {}
   )
-  const [priceInCents, setPriceInCents] = useState<number | undefined>(
-    product?.priceInCents
+  const [priceInNaira, setPriceInNaira] = useState<number | undefined>(
+    product?.priceInNaira
   )
 
   return (
@@ -34,20 +34,20 @@ export function ProductForm({ product }: { product?: Product | null }) {
         {error.name && <div className="text-destructive">{error.name}</div>}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="priceInCents">Price In Cents</Label>
+        <Label htmlFor="priceInNaira">Price In Naira</Label>
         <Input
           type="number"
-          id="priceInCents"
-          name="priceInCents"
+          id="priceInNaira"
+          name="priceInNaira"
           required
-          value={priceInCents}
-          onChange={e => setPriceInCents(Number(e.target.value) || undefined)}
+          value={priceInNaira}
+          onChange={e => setPriceInNaira(Number(e.target.value) || undefined)}
         />
         <div className="text-muted-foreground">
-          {formatCurrency((priceInCents || 0) / 100)}
+          {formatCurrency((priceInNaira || 0) )}
         </div>
-        {error.priceInCents && (
-          <div className="text-destructive">{error.priceInCents}</div>
+        {error.priceInNaira && (
+          <div className="text-destructive">{error.priceInNaira}</div>
         )}
       </div>
       <div className="space-y-2">
@@ -62,14 +62,14 @@ export function ProductForm({ product }: { product?: Product | null }) {
           <div className="text-destructive">{error.description}</div>
         )}
       </div>
-      <div className="space-y-2">
+      {/* <div className="space-y-2">
         <Label htmlFor="file">File</Label>
         <Input type="file" id="file" name="file" required={product == null} />
         {product != null && (
           <div className="text-muted-foreground">{product.filePath}</div>
         )}
         {error.file && <div className="text-destructive">{error.file}</div>}
-      </div>
+      </div> */}
       <div className="space-y-2">
         <Label htmlFor="image">Image</Label>
         <Input type="file" id="image" name="image" required={product == null} />

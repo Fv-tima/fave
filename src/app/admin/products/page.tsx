@@ -42,7 +42,7 @@ async function ProductsTable() {
     select: {
       id: true,
       name: true,
-      priceInCents: true,
+      priceInNaira: true,
       isAvailableForPurchase: true,
     
     },
@@ -83,7 +83,7 @@ async function ProductsTable() {
               )}
             </TableCell>
             <TableCell>{product.name}</TableCell>
-            <TableCell>{formatCurrency(product.priceInCents / 100)}</TableCell>
+            <TableCell>{formatCurrency(product.priceInNaira )}</TableCell>
             <TableCell>
               <DropdownMenu>
                 <DropdownMenuTrigger>

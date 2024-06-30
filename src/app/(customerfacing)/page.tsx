@@ -7,14 +7,13 @@ import { Product } from "@prisma/client"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Suspense } from "react"
-import Banner from "@/components/Banner"
 import React from "react"
 
 const getMostPopularProducts = cache(
   () => {
     return db.product.findMany({
       where: { isAvailableForPurchase: true },
-      take: 6,
+      take: 2,
     })
   },
   ["/", "getMostPopularProducts"],
@@ -25,7 +24,7 @@ const getNewestProducts = cache(() => {
   return db.product.findMany({
     where: { isAvailableForPurchase: true },
     orderBy: { createdAt: "desc" },
-    take: 6,
+    take: 2,
   })
 }, ["/", "getNewestProducts"])
 

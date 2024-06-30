@@ -41,14 +41,14 @@ async function ProductsSuspense({params}:any) {
   return (
     <div className="flex flex-col justify-center items-center w-full space-y-3 border-b-gray-400 border-b-[1.5px] my-4 pb-4">
     <Image
-      src={product.imagePath}
-      alt='images'
+      src={product.imagePath} 
+      alt={product.name}
       width={400}
       height={300}
       className='rounded h-[300px]' />
     <h1 className="text-gray-400 mr-auto">SALE</h1>
     <p className="text-2xl mr-auto">{product.name}</p>
-    <p className=" mr-auto text-gray-500">{formatCurrency(product.priceInCents / 100)}</p>
+    <p className=" mr-auto text-gray-500">{formatCurrency(product.priceInNaira / 100)}</p>
     <p className="mr-auto italic">{product.description}</p>
   </div>)
 }

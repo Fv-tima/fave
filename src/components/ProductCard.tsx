@@ -17,7 +17,7 @@ import Image from "next/image"
 type ProductCardProps = {
   id: string
   name: string
-  priceInCents: number
+  priceInNaira: number
   description: string
   imagePath: string
 }
@@ -25,7 +25,7 @@ type ProductCardProps = {
 export function ProductCard({
   id,
   name,
-  priceInCents,
+  priceInNaira,
   description,
   imagePath,
 }: ProductCardProps) {
@@ -41,7 +41,7 @@ export function ProductCard({
     }
 
     // Encode the price and image URL for proper WhatsApp message formatting
-    const encodedPrice = encodeURIComponent(priceInCents);
+    const encodedPrice = encodeURIComponent(priceInNaira);
     const encodedImageURL = encodeURIComponent(imagePath); // Assuming you have an image prop, replace with your image URL
 
     // Construct the WhatsApp URL with clear message, item ID, and optional image preview
@@ -58,7 +58,7 @@ export function ProductCard({
       </div>
       <CardHeader>
         <CardTitle>{name}</CardTitle>
-        <CardDescription>{formatCurrency(priceInCents / 100)}</CardDescription>
+        <CardDescription>{formatCurrency(priceInNaira)}</CardDescription>
       </CardHeader>
       <CardFooter>
          <button className='hover:bg-[#66625f] hover:text-white text-sm p-1 bg-transparent text-[#66625f] px-2 border-2 rounded-sm' onClick={handleWhatsAppClick}>Order now</button>

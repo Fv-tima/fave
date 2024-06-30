@@ -13,9 +13,9 @@ export function Nav({ children }: { children: ReactNode }) {
     setOpenNav((prev) => !prev);
   };
   return (
-    <nav className="bg-[#a38e7e] text-primary-foreground flex justify-center px-4">
-       <div className="flex justify-between items-center w-full px-[40px] py-6 h-4 md:h-8">
-        <div className=" cursor-pointer" onClick={open}>
+    <nav className="bg-[#a38e7e] text-primary-foreground justify-center px-4">
+       <div className="flex justify-between items-center w-full px-[40px] md:px[60px] py-6 h-4 md:h-8">
+        <div className=" cursor-pointer md:hidden flex" onClick={open}>
           {openNav ? <Image src="/imgs/close.png"
             alt="Close"
             width={15}
@@ -25,21 +25,19 @@ export function Nav({ children }: { children: ReactNode }) {
               width={25}
               height={25} />}
         </div>
-        <Link href="/"  >
         <Link href="/" className="italic font-serif font-bold text-xl text-center text-white/50" >
         fave
       </Link>
-        </Link>
         <div className="hidden md:flex space-x-8">
         {children}
         </div>
       </div>
       {openNav && (
-        <div className="mt-4 h-screen justify-start ml-10 flex" >
+        <div className="mt-4 h-auto rounded-sm p-4 flex" >
           <div onClick={open}>
-            <ul className="md:hidden flex flex-col space-y-[38px] ">
+            <div className="md:hidden flex flex-col space-y-[38px] ">
             {children}
-            </ul>
+            </div>
           </div>
         </div>
       )}
