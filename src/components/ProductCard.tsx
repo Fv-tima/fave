@@ -30,7 +30,7 @@ export function ProductCard({
   imagePath,
 }: ProductCardProps) {
 
- const whatsappNumber = '+2348066952753'; // Replace with your actual WhatsApp number (if needed)
+  const whatsappNumber = '+2348111272666';// Replace with your actual WhatsApp number (if needed)
 
   const handleWhatsAppClick = () => {
     // Enhanced validation for WhatsApp number format (international format)
@@ -52,18 +52,18 @@ export function ProductCard({
   };
   return (
     <Link href={`/products/${id}`}>
-    <Card className="flex overflow-hidden flex-col">
-      <div className="relative w-full h-auto aspect-video">
-        <Image src={imagePath} fill alt={name} />
-      </div>
-      <CardHeader>
-        <CardTitle>{name}</CardTitle>
-        <CardDescription>{formatCurrency(priceInNaira)}</CardDescription>
-      </CardHeader>
-      <CardFooter>
-         <button className='hover:bg-[#66625f] hover:text-white text-sm p-1 bg-transparent text-[#66625f] px-2 border-2 rounded-sm' onClick={handleWhatsAppClick}>Order now</button>
-      </CardFooter>
-    </Card>
+      <Card className="flex overflow-hidden flex-col">
+        <div className="relative w-full h-auto aspect-video">
+          <Image src={imagePath} fill alt={name} />
+        </div>
+        <CardHeader>
+          <CardTitle>{name}</CardTitle>
+          <CardDescription>{formatCurrency(priceInNaira)}</CardDescription>
+        </CardHeader>
+        <CardFooter>
+          <button className='hover:bg-[#66625f] hover:text-white text-sm p-1 bg-transparent text-[#66625f] px-2 border-2 rounded-sm' onClick={handleWhatsAppClick}>Order now</button>
+        </CardFooter>
+      </Card>
     </Link>
   )
 }

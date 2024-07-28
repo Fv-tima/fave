@@ -33,7 +33,7 @@ export default function ProductsPage({ params }: { params: ProdDetails }) {
   )
 }
 
-async function ProductsSuspense({params}:any) {
+export async function ProductsSuspense({params}:any) {
   const products = await getProducts()
 
   const product: any = products.find((item) => (item.id) === (params.productId))
