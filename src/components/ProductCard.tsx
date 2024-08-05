@@ -11,7 +11,6 @@ import {
   CardTitle,
 } from "./ui/card"
 import { Button } from "./ui/button"
-import Link from "next/link"
 import Image from "next/image"
 
 type ProductCardProps = {
@@ -26,8 +25,8 @@ export function ProductCard({
   id,
   name,
   priceInNaira,
-  description,
   imagePath,
+  description
 }: ProductCardProps) {
 
   const whatsappNumber = '+2348111272666';// Replace with your actual WhatsApp number (if needed)
@@ -51,20 +50,19 @@ export function ProductCard({
     window.location.href = whatsappUrl;
   };
   return (
-    <Link href={`/products/${id}`}>
       <Card className="flex overflow-hidden flex-col">
         <div className="relative w-full h-auto aspect-video">
           <Image src={imagePath} fill alt={name} />
         </div>
         <CardHeader>
           <CardTitle>{name}</CardTitle>
+          <CardDescription>{description}</CardDescription>
           <CardDescription>{formatCurrency(priceInNaira)}</CardDescription>
         </CardHeader>
         <CardFooter>
           <button className='hover:bg-[#66625f] hover:text-white text-sm p-1 bg-transparent text-[#66625f] px-2 border-2 rounded-sm' onClick={handleWhatsAppClick}>Order now</button>
         </CardFooter>
       </Card>
-    </Link>
   )
 }
 

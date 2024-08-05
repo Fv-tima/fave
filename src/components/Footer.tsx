@@ -24,11 +24,6 @@ export default function Footer() {
             height={25}
             alt="facebook" />
           <Image
-            src="/images/in.png"
-            width={25}
-            height={25}
-            alt="instagram" />
-          <Image
             src="/imgs/x.png"
             width={25}
             height={25}
